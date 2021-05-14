@@ -1,7 +1,7 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, Text } from 'react-native';
 
-const ToDoItem = (item) => {
+const ToDoItem = ({ item }) => {
   return (
     <View>
       <Text>ID: {item.id}</Text>
@@ -13,7 +13,10 @@ const ToDoItem = (item) => {
 export const ToDoListComponent = () => {
   return (
     <>
-      <FlatList data={[]} renderItem={({ item }) => <ToDoItem item={item} />} />
+      <FlatList
+        data={[]}
+        renderItem={({ item }) => <ToDoItem item={item} />}
+      />
     </>
   );
 };
