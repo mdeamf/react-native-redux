@@ -1,7 +1,7 @@
 import { ADD_TO_DO, REMOVE_TO_DO } from './actions';
 
 const initialState = {
-  toDoList: [{ id: 1, descricao: 'Meu primeiro To Do...' }],
+  toDoList: [{ id: 1, descricao: 'Meu primeiro To Do...', key: '1' }],
 };
 
 export const toDoReducer = (state = initialState, action) => {
@@ -16,14 +16,12 @@ export const toDoReducer = (state = initialState, action) => {
 
     case REMOVE_TO_DO:
       // Finding the To Do index.
-      let index = toDo.findIndex(
-        item => item.id === action.payload
-      );
+      let index = toDo.findIndex((item) => item.id === action.payload);
 
       // Removing the item from the array.
       toDo.splice(index, 1);
   }
 
   // Returning the current state and overwriting the changed property.
-  return { ...state, todoList: todo };
+  return { ...state, toDoList: toDo };
 };

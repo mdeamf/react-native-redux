@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlatList, View, Text } from 'react-native';
+import { useSelector } from 'react-redux';
 
 const ToDoItem = ({ item }) => {
   return (
@@ -11,10 +12,17 @@ const ToDoItem = ({ item }) => {
 };
 
 export const ToDoListComponent = () => {
+  // Mapping the state from the Provider.
+  const mappedState = useSelector((state) => {
+    console.log('state from useSelector', state);
+    return state;
+  });
+  console.log('state from mappedState', mappedState);
+
   return (
     <>
       <FlatList
-        data={[]}
+        data={mappedState.toDoList}
         renderItem={({ item }) => <ToDoItem item={item} />}
       />
     </>
